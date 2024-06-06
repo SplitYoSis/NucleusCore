@@ -12,7 +12,9 @@
     <name>nucleus-core</name>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -47,29 +49,28 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>org.xerial</pattern>
-                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.xerial</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>mysql</pattern>
-                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.mysql</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.mariadb.jdbc</pattern>
-                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.mariadb.jdbc</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.h2database</pattern>
-                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.h2database</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.zaxxer</pattern>
-                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.zaxxer</shadedPattern>
-                                </relocation>
-                            </relocations>
-
+<!--                            <relocations>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.xerial</pattern>-->
+<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.xerial</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>mysql</pattern>-->
+<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.mysql</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.mariadb.jdbc</pattern>-->
+<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.mariadb.jdbc</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>com.h2database</pattern>-->
+<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.h2database</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>com.zaxxer</pattern>-->
+<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.zaxxer</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                            </relocations>-->
                         </configuration>
                     </execution>
                 </executions>
