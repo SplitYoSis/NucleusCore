@@ -1,0 +1,27 @@
+# Database configuration
+database:
+
+  # Options for database type:
+  #
+  #   Local database / File - non-remote:
+  #     - SQLite (default)
+  #     - H2
+  #
+  #   Remote database:
+  #     - MySQL
+  #     - MariaDB
+  type: SQLite
+
+  # Credentials for a remote database.
+  # Ignore this section if the database type is a local one.
+  info:
+
+    # Define the address and port for the database.
+    address: localhost
+
+    # The name of the database to store data in.
+    name: database-name
+
+    # Credentials for the database.
+    username: root
+    password: ''
