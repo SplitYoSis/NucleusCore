@@ -1,7 +1,7 @@
 package dev.splityosis.nucleuscore.commands;
 
+import com.octanepvp.splityosis.commandsystem.SYSCommandBranch;
 import dev.splityosis.nucleuscore.Nucleus;
-import dev.splityosis.commandsystem.SYSCommandBranch;
 
 public class CommandsCommandBranch extends SYSCommandBranch {
 

@@ -1,7 +1,8 @@
 package dev.splityosis.nucleuscore.commands.arguments;
 
-import dev.splityosis.commandsystem.SYSArgument;
-import dev.splityosis.commandsystem.SYSCommand;
+
+import com.octanepvp.splityosis.commandsystem.SYSArgument;
+import com.octanepvp.splityosis.commandsystem.SYSCommand;
 import dev.splityosis.nucleuscore.Nucleus;
 import dev.splityosis.nucleuscore.module.Module;
 import org.bukkit.command.CommandSender;

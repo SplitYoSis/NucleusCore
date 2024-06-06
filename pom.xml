@@ -5,16 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.splityosis</groupId>
-    <artifactId>NucleusCore</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <artifactId>nucleus-core</artifactId>
+    <version>1.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>NucleusCore</name>
+    <name>nucleus-core</name>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OctanePvP Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/OctanePvP/OctaneSkills</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -39,6 +47,29 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.xerial</pattern>
+                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.xerial</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>mysql</pattern>
+                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.mysql</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.mariadb.jdbc</pattern>
+                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.mariadb.jdbc</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.h2database</pattern>
+                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.h2database</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.zaxxer</pattern>
+                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.zaxxer</shadedPattern>
+                                </relocation>
+                            </relocations>
+
                         </configuration>
                     </execution>
                 </executions>
@@ -65,6 +96,7 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+
     </repositories>
 
     <dependencies>
@@ -73,12 +105,6 @@
             <artifactId>spigot-api</artifactId>
             <version>1.19.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.SplitYoSis</groupId>
-            <artifactId>CommandSystem</artifactId>
-            <version>v1.2.7</version>
         </dependency>
 
         <dependency>
@@ -111,6 +137,13 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>5.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.OctanePvP</groupId>
+            <artifactId>OctaneEngine</artifactId>
+            <version>1.0.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

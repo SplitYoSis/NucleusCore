@@ -1,13 +1,13 @@
 package dev.splityosis.nucleuscore.commands;
 
+import com.octanepvp.splityosis.commandsystem.SYSCommand;
+import com.octanepvp.splityosis.commandsystem.SYSCommandBranch;
 import dev.splityosis.nucleuscore.Nucleus;
 import dev.splityosis.nucleuscore.module.Module;
 import dev.splityosis.nucleuscore.Util;
 import dev.splityosis.nucleuscore.commands.arguments.DisabledModuleArgument;
 import dev.splityosis.nucleuscore.commands.arguments.EnabledModuleArgument;
 import dev.splityosis.nucleuscore.commands.arguments.ModuleArgument;
-import dev.splityosis.commandsystem.SYSCommand;
-import dev.splityosis.commandsystem.SYSCommandBranch;
 import org.bukkit.entity.Player;
 
 public class ModulesCommandBranch extends SYSCommandBranch {

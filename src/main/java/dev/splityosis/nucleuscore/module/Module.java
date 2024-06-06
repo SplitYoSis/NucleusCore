@@ -1,8 +1,8 @@
 package dev.splityosis.nucleuscore.module;
 
+import com.octanepvp.splityosis.commandsystem.SYSCommand;
+import com.octanepvp.splityosis.commandsystem.SYSCommandBranch;
 import dev.splityosis.nucleuscore.Nucleus;
-import dev.splityosis.commandsystem.SYSCommand;
-import dev.splityosis.commandsystem.SYSCommandBranch;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -89,7 +89,7 @@ public abstract class Module {
      */
     public final void registerCommands(SYSCommand... commands){
         for (SYSCommand command : commands) {
-            command.unregisterFromCommandMap();
+            //command.unregisterFromCommandMap();
             command.registerCommand(getNucleus().getPlugin());
             nucleus.getCommandsCommandBranch().addCommand(command);
             moduleCommands.add(command);
