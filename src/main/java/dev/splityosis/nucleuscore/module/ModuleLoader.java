@@ -60,7 +60,7 @@ public class ModuleLoader {
     }
 
     public void initializeModulesState(){
-        Bukkit.getScheduler().runTaskLater(nucleus.getPlugin(), () -> {
+//        Bukkit.getScheduler().runTaskLater(nucleus.getPlugin(), () -> {
             LinkedList<PendingModuleProfile> moduleClassesToLoad = new LinkedList<>();
             for (Class<? extends Module> aClass : classModuleMap.keySet())
                 moduleClassesToLoad.add(new PendingModuleProfile(aClass));
@@ -87,7 +87,7 @@ public class ModuleLoader {
                     getNucleus().log(" &c- "+pendingModuleProfile.getSignature().name());
                 }
             }
-        }, 1L);
+//        }, 1L);
     }
 
     private boolean scan(LinkedList<PendingModuleProfile> pendingModuleProfileList, Map<String, PendingModuleProfile> modulesByNameMap){

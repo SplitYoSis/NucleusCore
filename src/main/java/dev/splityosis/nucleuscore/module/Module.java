@@ -41,7 +41,6 @@ public abstract class Module {
      * Called when the module is disabled.
      */
     public abstract void onDisable();
-
     /**
      * Called when the module is reloaded.
      */
