@@ -134,7 +134,7 @@ public class Nucleus {
     }
 
     public void log(String message){
-        Util.sendMessage(Bukkit.getConsoleSender(), LOG_PREFIX + " &7" + message);
+        NucleusUtil.sendMessage(Bukkit.getConsoleSender(), LOG_PREFIX + " &7" + message);
     }
 
     public void log(Collection<String> message){
@@ -144,7 +144,7 @@ public class Nucleus {
     }
 
     public void sendPrefixedMessage(CommandSender to, String message){
-        to.sendMessage(Util.colorize(LOG_PREFIX + " " +message));
+        to.sendMessage(NucleusUtil.colorize(LOG_PREFIX + " " +message));
     }
 
     public void sendPrefixedMessage(CommandSender to, List<String> message){
@@ -154,7 +154,7 @@ public class Nucleus {
     }
 
     public void sendMessage(CommandSender to, String message){
-        to.sendMessage(Util.colorize(message));
+        to.sendMessage(NucleusUtil.colorize(message));
     }
 
     public void sendMessage(CommandSender to, List<String> message){

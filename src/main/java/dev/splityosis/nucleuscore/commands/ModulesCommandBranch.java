@@ -4,7 +4,7 @@ import com.octanepvp.splityosis.commandsystem.SYSCommand;
 import com.octanepvp.splityosis.commandsystem.SYSCommandBranch;
 import dev.splityosis.nucleuscore.Nucleus;
 import dev.splityosis.nucleuscore.module.Module;
-import dev.splityosis.nucleuscore.Util;
+import dev.splityosis.nucleuscore.NucleusUtil;
 import dev.splityosis.nucleuscore.commands.arguments.DisabledModuleArgument;
 import dev.splityosis.nucleuscore.commands.arguments.EnabledModuleArgument;
 import dev.splityosis.nucleuscore.commands.arguments.ModuleArgument;
@@ -21,9 +21,9 @@ public class ModulesCommandBranch extends SYSCommandBranch {
 
         addCommand(new SYSCommand("List").executes((commandSender, strings) -> {
             for (Module enabledModule : nucleus.getModuleLoader().getEnabledModules())
-                Util.sendMessage(commandSender, "&a"+enabledModule.getName());
+                NucleusUtil.sendMessage(commandSender, "&a"+enabledModule.getName());
             for (Module disabledModule : nucleus.getModuleLoader().getDisabledModules())
-                Util.sendMessage(commandSender, "&c"+disabledModule.getName());
+                NucleusUtil.sendMessage(commandSender, "&c"+disabledModule.getName());
         }));
 
         addCommand(new SYSCommand("Enable")
@@ -73,31 +73,31 @@ public class ModulesCommandBranch extends SYSCommandBranch {
 
                     String[] authors = module.getSignature().authors();
                     if (authors.length == 1)
-                        Util.sendMessage(commandSender, "&eAuthor: &b"+authors[0]);
+                        NucleusUtil.sendMessage(commandSender, "&eAuthor: &b"+authors[0]);
                     else if (authors.length == 2)
-                        Util.sendMessage(commandSender, "&eAuthors: &b"+authors[0] + "and "+authors[1]);
+                        NucleusUtil.sendMessage(commandSender, "&eAuthors: &b"+authors[0] + "and "+authors[1]);
                     else {
                         StringBuilder stringBuilder = new StringBuilder(authors[0]);
                         for (int i = 1; i < authors.length-1; i++)
                             stringBuilder.append(", ").append(authors[i]);
                         stringBuilder.append(" and ").append(authors[authors.length-1]);
-                        Util.sendMessage(commandSender, "&eAuthors: &b"+stringBuilder);
+                        NucleusUtil.sendMessage(commandSender, "&eAuthors: &b"+stringBuilder);
                     }
 
-                    Util.sendMessage(commandSender, "&eDescription: &b"+module.getDescription()+".");
+                    NucleusUtil.sendMessage(commandSender, "&eDescription: &b"+module.getDescription()+".");
 
                     if (module.getRequiredPlugins().length != 0){
                         StringBuilder plugins = new StringBuilder();
                         for (String requiredPlugin : module.getRequiredPlugins())
                             plugins.append(requiredPlugin).append(", ");
-                        Util.sendMessage(commandSender, "&eRequired plugins: &b"+plugins.substring(0, plugins.length()-2));
+                        NucleusUtil.sendMessage(commandSender, "&eRequired plugins: &b"+plugins.substring(0, plugins.length()-2));
                     }
 
                     if (module.getRequiredModules().length != 0){
                         StringBuilder modules = new StringBuilder();
                         for (String requiredModule : module.getRequiredModules())
                             modules.append(requiredModule).append(", ");
-                        Util.sendMessage(commandSender, "&eRequired modules: &b"+modules.substring(0, modules.length()-2));
+                        NucleusUtil.sendMessage(commandSender, "&eRequired modules: &b"+modules.substring(0, modules.length()-2));
                     }
                 }));
     }
