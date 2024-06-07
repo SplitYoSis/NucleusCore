@@ -47,28 +47,6 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-<!--                            <relocations>-->
-<!--                                <relocation>-->
-<!--                                    <pattern>org.xerial</pattern>-->
-<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.xerial</shadedPattern>-->
-<!--                                </relocation>-->
-<!--                                <relocation>-->
-<!--                                    <pattern>mysql</pattern>-->
-<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.mysql</shadedPattern>-->
-<!--                                </relocation>-->
-<!--                                <relocation>-->
-<!--                                    <pattern>org.mariadb.jdbc</pattern>-->
-<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.org.mariadb.jdbc</shadedPattern>-->
-<!--                                </relocation>-->
-<!--                                <relocation>-->
-<!--                                    <pattern>com.h2database</pattern>-->
-<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.h2database</shadedPattern>-->
-<!--                                </relocation>-->
-<!--                                <relocation>-->
-<!--                                    <pattern>com.zaxxer</pattern>-->
-<!--                                    <shadedPattern>dev.splityosis.nucleuscore.libraries.com.zaxxer</shadedPattern>-->
-<!--                                </relocation>-->
-<!--                            </relocations>-->
                         </configuration>
                     </execution>
                 </executions>
