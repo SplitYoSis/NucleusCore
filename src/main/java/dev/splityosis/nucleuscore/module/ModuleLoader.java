@@ -90,8 +90,7 @@ public class ModuleLoader {
 //        }, 1L);
     }
 
-    private boolean scan(LinkedList<PendingModuleProfile> pendingModuleProfileList, Map<String, PendingModuleProfile> modulesByNameMap){
-
+    private boolean scan(LinkedList<PendingModuleProfile> pendingModuleProfileList, Map<String, PendingModuleProfile> modulesByNameMap) {
         int pendingSize = pendingModuleProfileList.size();
 
         Iterator<PendingModuleProfile> iterator = pendingModuleProfileList.iterator();
@@ -100,8 +99,8 @@ public class ModuleLoader {
             PendingModuleProfile pendingModuleProfile = iterator.next();
 
             // Check if meant to be enabled (meaning if the user disabled it)
-            if (!isModuleSetToEnabled(getModule(pendingModuleProfile.getModuleClass()))){
-                pendingModuleProfileList.remove(pendingModuleProfile);
+            if (!isModuleSetToEnabled(getModule(pendingModuleProfile.getModuleClass()))) {
+                iterator.remove();
                 pendingModuleProfile.setWillNeverEnable(true);
                 continue modules;
             }
@@ -115,7 +114,7 @@ public class ModuleLoader {
                             missingPlugins.add(s);
                     }
                     new MissingPluginDependency(pendingModuleProfile.getSignature().name(), missingPlugins).printStackTrace();
-                    pendingModuleProfileList.remove(pendingModuleProfile);
+                    iterator.remove();
                     pendingModuleProfile.setWillNeverEnable(true);
                     continue modules;
                 }
@@ -125,7 +124,7 @@ public class ModuleLoader {
             for (String requiredModuleName : pendingModuleProfile.getLowerCaseRequiredModules()) {
                 PendingModuleProfile requiredModuleProfile = modulesByNameMap.get(requiredModuleName);
                 Module requiredModule = getModule(requiredModuleProfile.getModuleClass());
-                if (requiredModuleProfile.isWillNeverEnable() || !isModuleSetToEnabled(requiredModule)){
+                if (requiredModuleProfile.isWillNeverEnable() || !isModuleSetToEnabled(requiredModule)) {
                     List<String> missingModules = new ArrayList<>();
                     for (String s : pendingModuleProfile.getSignature().requiredModules()) {
                         Module anotherRequiredModule = getModule(s);
@@ -135,7 +134,7 @@ public class ModuleLoader {
                     }
                     new MissingModuleDependency(pendingModuleProfile.getSignature().name(), missingModules).printStackTrace();
 
-                    pendingModuleProfileList.remove(pendingModuleProfile);
+                    iterator.remove();
                     pendingModuleProfile.setWillNeverEnable(true);
                     continue modules;
                 }
@@ -155,7 +154,6 @@ public class ModuleLoader {
             Module module = getModule(pendingModuleProfile.getModuleClass());
             enableModule(module);
             iterator.remove();
-            //pendingModuleProfileList.remove(pendingModuleProfile);
         }
 
         return pendingSize == pendingModuleProfileList.size();
