@@ -24,7 +24,7 @@ public class HikariDatabaseConnectionManager implements DatabaseConnectionManage
         this.nucleus = nucleus;
         if (databaseType == null)
             throw new UnsupportedDatabaseType("null");
-        this.databaseType = databaseType;
+        this.databaseType = databaseType.toLowerCase();
         if (Arrays.asList("sqlite", "h2").contains(databaseType.toLowerCase())) {
             local = true;
             return;
@@ -40,6 +40,12 @@ public class HikariDatabaseConnectionManager implements DatabaseConnectionManage
 
     @Override
     public void setup(){
+
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         StringBuilder url = new StringBuilder("jdbc:").append(databaseType).append(":");  // jdbc:MySql
         hikariDataSource = new HikariDataSource();
