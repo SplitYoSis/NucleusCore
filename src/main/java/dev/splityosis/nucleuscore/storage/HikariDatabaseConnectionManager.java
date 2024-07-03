@@ -49,7 +49,7 @@ public class HikariDatabaseConnectionManager implements DatabaseConnectionManage
             hikariDataSource.setJdbcUrl(url.toString());
         }
         else {
-            url.append("\\\\").append(databaseAddress).append("/").append(databaseName);
+            url.append("//").append(databaseAddress).append("/").append(databaseName);
             hikariDataSource.setJdbcUrl(url.toString());
             hikariDataSource.setUsername(username);
             hikariDataSource.setPassword(password);
