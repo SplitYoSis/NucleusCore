@@ -162,7 +162,7 @@ public class ModuleLoader {
 
     public void onDisable(){
         //TODO @Sllly make it so they disable in the right order
-        for (Module enabledModule : enabledModules) {
+        for (Module enabledModule : new ArrayList<>(enabledModules)) {
             try {
                 disableModule(enabledModule, false);
             }catch (Exception e){

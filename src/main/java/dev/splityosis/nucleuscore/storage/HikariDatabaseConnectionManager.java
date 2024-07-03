@@ -41,7 +41,7 @@ public class HikariDatabaseConnectionManager implements DatabaseConnectionManage
     @Override
     public void setup(){
 
-        StringBuilder url = new StringBuilder("jdbc:").append(databaseType).append(":");
+        StringBuilder url = new StringBuilder("jdbc:").append(databaseType).append(":");  // jdbc:MySql
         hikariDataSource = new HikariDataSource();
 
         if (local) {
@@ -49,7 +49,7 @@ public class HikariDatabaseConnectionManager implements DatabaseConnectionManage
             hikariDataSource.setJdbcUrl(url.toString());
         }
         else {
-            url.append(databaseAddress).append("/").append(databaseName);
+            url.append("\\\\").append(databaseAddress).append("/").append(databaseName);
             hikariDataSource.setJdbcUrl(url.toString());
             hikariDataSource.setUsername(username);
             hikariDataSource.setPassword(password);
